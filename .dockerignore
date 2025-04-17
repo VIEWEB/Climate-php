@@ -1,0 +1,26 @@
+.git
+.gitignore
+Dockerfile
+.dockerignore
+
+# Composer dependencies (installed inside the container)
+vendor/
+
+# Node dependencies (if any)
+node_modules/
+
+# Log files
+*.log
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# IDE / OS files
+.idea/
+.vscode/
+*.DS_Store
+
+# Readme files
+*.md 
