@@ -31,6 +31,9 @@ COPY composer.json composer.lock ./
 # --no-interaction: Do not ask any interactive questions
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
+# Update Apache config to allow .htaccess overrides
+RUN sed -i '/<Directory \/var\/www\/html>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
+
 # Copy the rest of the application code
 COPY . .
 
