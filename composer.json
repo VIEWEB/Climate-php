@@ -1,0 +1,8 @@
+{
+    "name": "alphaobs/climatedot",
+    "description": "for fetching data from google sheet",
+    "type": "project",
+    "require": {
+        "google/apiclient": "^2.0"
+    }
+}

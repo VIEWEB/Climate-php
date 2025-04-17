@@ -1,0 +1,168 @@
+.indicators-switchbox {
+    display: flex;
+    gap: 20px;
+}
+
+.indicators {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.item {
+    position: relative; /* For tooltip positioning */
+    display: inline-block;
+    cursor: pointer;
+}
+
+.item:hover::after, .item:active::after {
+    content: attr(data-tooltip); /* Tooltip content from data attribute */
+    position: absolute;
+    bottom: 120%; /* Position tooltip above the item */
+    left: 50%; /* Center align with the item */
+    transform: translateX(-50%);
+    max-width: 400px; /* Optional: limit the width of the tooltip */
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.4;
+    font-weight: 400;
+    border-radius: 5px;
+    white-space: normal; /* Allows multiple lines */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none; /* Avoid tooltip interfering with hover/click */
+    z-index: 10;
+    text-align: left;
+}
+
+.item:hover::after {
+    opacity: 1; /* Show tooltip on hover */
+    width:200px;
+}
+
+.item img {
+    display: block;
+    pointer-events: auto; /* Ensures clicking works for the item */
+}
+.banner{
+    display:flex;
+    justify-content:space-between;
+}
+.data-content{
+    display:flex !important;
+    padding: 0;
+    border: none;
+    gap: 30px;
+}
+.summry-content, .data-quality-content {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.summry-content{
+    width:50%;
+}
+.data-quality-content{
+    width:50%;
+}
+#dataQuality{
+    border:none;
+    padding:0;
+}
+.main{
+    padding: 20px 100px 50px 100px;
+}
+.banner h1{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 24px;
+    line-height: 30px;
+}
+h2{
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 600;
+    font-family: 'Quicksand', sans-serif;
+    color: #020817;
+}
+h3{
+    font-size: 14px;
+    line-height: 40px;
+    font-weight: 700;
+    font-family: 'Quicksand', sans-serif;
+    color: #020817;
+    text-align: center;
+}
+p {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 500;
+    font-family: 'Quicksand', sans-serif;
+    color: black;
+    text-align:left;
+}
+.content-box {
+    display: none;
+    padding: 20px;
+    /*border: 1px solid #ddd;*/
+    border-radius: 5px;
+    margin-top:20px;
+}
+
+.content-box.active {
+    display: block;
+}
+/* Container for toggle buttons */
+.switchbox-container {
+    display: inline-flex; /* Arrange spans horizontally */
+    border-radius: 5px; /* Rounded corners for the entire toggle box */
+    position: relative; /* For positioning pseudo-elements */
+    background-color: #8080808c; /* Default inactive background */
+    overflow: hidden; /* Prevent overflow */
+}
+
+/* Default styling for toggle items (buttons) */
+.toggle-item {
+    padding: 10px 20px;
+    border: none;
+    color:white;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative; /* For z-index layering */
+    z-index: 2; /* Ensure text is on top */
+    cursor: pointer; /* Pointer cursor */
+    transition: all 0.3s ease; /* Smooth transitions */
+}
+
+/* Pseudo-element for sliding indicator */
+.switchbox-container::before {
+    content: ''; /* Mandatory for pseudo-elements */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 50%; /* Covers half the width initially */
+    background-color: #24577B; /* Active button background */
+    transition: all 0.3s ease; /* Smooth sliding animation */
+    border-radius: 5px; /* Rounded corners */
+    z-index: 1; /* Place below text but above background */
+}
+
+/* Active state for text (white) */
+.toggle-item.active {
+    color: white; /* Active text color */
+    z-index: 3; /* Ensure it stays above the background */
+}
+
+/* Hover effect */
+.toggle-item:hover {
+    color: white; /* Slightly darker text on hover */
+}
+
+/* Adjust the sliding background when 'overview' is active */
+.switchbox-container.overview-active::before {
+    left: 50%; /* Slide the indicator to the right */
+}
